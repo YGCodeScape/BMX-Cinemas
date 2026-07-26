@@ -62,7 +62,7 @@ export default function ExperienceSection() {
                   if (trackRef.current) trackRef.current.scrollTo({ left: 0, behavior: 'smooth' });
                 }}
               >
-                ☕ BMX CINE CAFE
+                <i class="fa-solid fa-mug-hot"></i> BMX CINE CAFE
               </button>
               <button
                 className={`exp-tab-btn ${activeTab === 'theater' ? 'active' : ''}`}
@@ -73,7 +73,7 @@ export default function ExperienceSection() {
                   if (trackRef.current) trackRef.current.scrollTo({ left: 0, behavior: 'smooth' });
                 }}
               >
-                🍿 INSIDE THEATER
+                <i class="fa-solid fa-couch"></i>  INSIDE THEATER
               </button>
             </div>
           </div>

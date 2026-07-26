@@ -1,7 +1,7 @@
 # 🎬 BMX Cinemas - Next-Gen Multiplex & Cine Cafe Platform
 
 > **A Premium, Glassmorphic React & Vite Web Application** built for **BMX Cinemas**, representing luxury movie theater outlets across Navi Mumbai (Kopar Khairane, Kharghar) and Ambernath.
-
+live link :  https://bmxcinemas.netlify.app/
 ---
 
 ## 🌟 Key Features

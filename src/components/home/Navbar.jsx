@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../styles/navigation.css';
 
 export default function Navbar({ activePage = 'home', onNavigate }) {
+  const navigate = useNavigate();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -22,10 +24,29 @@ export default function Navbar({ activePage = 'home', onNavigate }) {
   const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
   const closeDrawer = () => setIsDrawerOpen(false);
 
-  const handleNavClick = (pageId) => {
+  const handleNavClick = (target) => {
     closeDrawer();
     if (onNavigate) {
-      onNavigate(pageId);
+      onNavigate(target);
+    }
+
+    if (target === 'home') {
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'about') {
+      navigate('/about');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      if (window.location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          const el = document.getElementById(target);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      } else {
+        const el = document.getElementById(target);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
