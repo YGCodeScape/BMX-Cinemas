@@ -1,0 +1,85 @@
+/* ==========================================================================
+   BMX CINEMAS - MODERN UI/UX STYLESHEET
+   ========================================================================== */
+
+/* 1. Global CSS Custom Properties */
+:root {
+  --bg: #0B0710;
+  --card: #1C1129;
+  --card-strong: #241633;
+  --card-glass: rgba(25, 16, 36, 0.7);
+  --field: #150c1fc5;
+  --purple: #8B2FE8;
+  --purple-light: #B565F4;
+  --purple-deep: #4A1B7D;
+  --pink: #E94FA1;
+  --gold: #F2B705;
+  --gold-bright: #F2C94C;
+  --gold-glow: rgba(242, 153, 74, 0.45);
+  --text-primary: #FFFFFF;
+  --text-secondary: #C9BEDE;
+  --text-muted: #8A7EA4;
+  --border-glow: rgba(139, 47, 232, 0.45);
+  
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 2. Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  min-height: 100vh;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Background Ambient Orbs */
+.ambient-glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}

@@ -1,0 +1,310 @@
+/* ==========================================================================
+   UPCOMING SHOWS SECTION
+   ========================================================================== */
+.upcoming-shows-section {
+  padding: 40px 0 90px 0;
+  background: var(--bg);
+  position: relative;
+  z-index: 5;
+}
+
+.section-header-upcoming {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 36px;
+  gap: 20px;
+}
+
+.pill-badge-pink {
+  background: var(--card);
+  border: 1px solid var(--purple-deep);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 3px 6px;
+}
+
+.upcoming-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Month Filter Wrapper (Shows ~4 months at a time on desktop, scrollable track) */
+.month-filter-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  max-width: 550px;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.month-filter-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.month-btn {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 22px;
+  border-radius: 30px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.month-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+}
+
+.month-btn.active {
+  background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+  border-color: transparent;
+  color: #fff;
+}
+
+/* Upcoming Cards Track */
+.upcoming-cards-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 4px 20px 4px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+}
+
+.upcoming-cards-track::-webkit-scrollbar {
+  display: none;
+}
+
+.upcoming-card {
+  flex: 0 0 calc((100% - 60px) / 4);
+  scroll-snap-align: start;
+  background: var(--card-strong);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.upcoming-card:hover,
+.upcoming-card.info-active {
+  border-color: var(--pink);
+}
+
+.coming-soon-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(15, 9, 23, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--pink);
+  color: var(--pink);
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.release-date-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+.release-date-tag i {
+  color: var(--purple-light);
+}
+
+/* Extra Empty Month Card */
+.empty-month-card {
+  flex: 0 0 calc((100% - 60px) / 4);
+  scroll-snap-align: start;
+  background: var(--card-glass);
+  backdrop-filter: blur(16px);
+  border: 1px dashed rgba(139, 47, 232, 0.4);
+  border-radius: 24px;
+  padding: 36px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  transition: var(--transition-smooth);
+}
+
+.empty-month-card:hover {
+  border-color: var(--pink);
+  background: rgba(25, 16, 36, 0.85);
+  transform: translateY(-6px);
+}
+
+.empty-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.25rem;
+  box-shadow: 0 6px 20px rgba(233, 79, 161, 0.4);
+}
+
+.empty-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.empty-card-text {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Pre-booking Banner */
+.prebooking-banner {
+  margin-top: 32px;
+  padding: 16px 24px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+.banner-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pink);
+  box-shadow: 0 0 12px var(--pink);
+  animation: pulseGlow 2s infinite;
+   flex-shrink: 0;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Mobile Responsiveness for Upcoming Cards */
+@media (max-width: 1024px) {
+  .upcoming-card, .empty-month-card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-container {
+    padding: 0 16px;
+  }
+
+  .section-header {
+    margin-bottom: 24px;
+  }
+
+  .card-info-bottom {
+    padding: 16px 12px 14px 12px;
+  }
+
+  .card-title {
+    font-size: 1.05rem;
+  }
+
+  .card-actions {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .btn-card-book, .btn-card-trailer {
+    padding: 8px 10px;
+    font-size: 0.78rem;
+  }
+
+  .upcoming-shows-section {
+    padding: 50px 0 40px 0;
+  }
+
+  .upcoming-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
+  }
+
+  /* 60% width for Month Scroller on Mobile */
+  .upcoming-controls-row .month-filter-wrapper {
+    flex: 0 0 70%;
+    width: 70%;
+    max-width: 70%;
+    padding-bottom: 4px;
+  }
+
+  /* 40% width for Navigation Arrows on Mobile */
+  .upcoming-controls-row .carousel-nav-arrows {
+    flex: 0 0 30%;
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+
+  .upcoming-controls-row .arrow-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 0.85rem;
+  }
+
+  .upcoming-card, .empty-month-card {
+    flex: 0 0 calc((100% - 80px) / 1);
+  }
+  .month-btn {
+    padding: 10px 18px;
+  }
+}
