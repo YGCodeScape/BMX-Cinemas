@@ -36,6 +36,9 @@ export default function Navbar({ activePage = 'home', onNavigate }) {
     } else if (target === 'about') {
       navigate('/about');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'contact') {
+      navigate('/contact');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       if (window.location.pathname !== '/') {
         navigate('/');
