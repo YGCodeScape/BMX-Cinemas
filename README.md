@@ -30,7 +30,7 @@
 
 ## 📂 Project Architecture
 
-```
+<!-- ```
 BMX-React/
 ├── public/
 │   └── img/                     # Movie posters, backdrops, food & avatar assets
@@ -70,7 +70,7 @@ BMX-React/
 ├── index.html
 ├── package.json
 └── README.md
-```
+``` -->
 
 ---
 
