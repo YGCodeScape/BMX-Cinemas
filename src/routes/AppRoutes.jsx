@@ -4,6 +4,7 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Career from "../pages/Career";
 import Advertise from "../pages/Advertise";
+import Corporate from "../pages/Corporate";
 
 export default function AppRoutes() {
   return (
@@ -15,6 +16,7 @@ export default function AppRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/career" element={<Career />} />
         <Route path="/advertise" element={<Advertise />} />
+        <Route path="/corporate" element={<Corporate />} />
         
         {/* ---------- FALLBACK ---------- */}
         <Route path="*" element={<Navigate to="/" replace />} />
