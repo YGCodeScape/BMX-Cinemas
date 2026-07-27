@@ -2,33 +2,31 @@ import React, { useState } from 'react';
 import Navbar from '../components/home/Navbar';
 import Footer from '../components/common/Footer';
 import { contactOutletsData } from '../data/contactDataSet';
+import { useFormSubmit } from '../hooks/useFormSubmit';
 import '../styles/contact.css';
 
 export default function Contact() {
+  const { isSubmitting, isSuccess, handleSubmit: sendForm } = useFormSubmit('contact');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.subject) return;
 
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-
-    // Hide success alert after 6 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 6000);
+    const res = await sendForm(formData);
+    if (res.success) {
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    }
   };
 
   return (
@@ -94,18 +92,18 @@ export default function Contact() {
                 <div>
                   <h3 className="form-header-title">Send Us a Message</h3>
                   <p className="form-header-subtitle">
-                    Fill out the form below and our customer support team will get back to you shortly.
+                    Fill out the form below and our customer support team will get back to you.
                   </p>
                 </div>
 
-                {isSubmitted && (
+                {isSuccess && (
                   <div className="form-success-banner">
                     <i className="fa-solid fa-circle-check"></i>
-                    <span>Thank you! Your message has been sent successfully. We will contact you soon.</span>
+                    <span>Thank you! Your message has been sent to servicesreserves@gmail.com. We will contact you soon.</span>
                   </div>
                 )}
 
-                <form className="contact-form" onSubmit={handleSubmit}>
+                <form className="contact-form" onSubmit={handleFormSubmit}>
                   
                   {/* Name Input */}
                   <div className="contact-form-group">
@@ -166,9 +164,9 @@ export default function Contact() {
                   </div>
 
                   {/* Submit Button */}
-                  <button type="submit" className="btn-submit-contact">
-                    <span>Send Message</span>
-                    <i className="fa-solid fa-paper-plane"></i>
+                  <button type="submit" className="btn-submit-contact" disabled={isSubmitting}>
+                    <span>{isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
+                    <i className={`fa-solid ${isSubmitting ? 'fa-spinner fa-spin' : 'fa-paper-plane'}`}></i>
                   </button>
 
                 </form>
