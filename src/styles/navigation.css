@@ -392,7 +392,6 @@ body.drawer-open {
 .drawer-sublink:hover i,
 .drawer-sublink.active i {
   color: var(--pink);
-  transform: scale(1.1);
 }
 
 

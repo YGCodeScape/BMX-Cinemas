@@ -1,0 +1,319 @@
+/* ==========================================================================
+   CAREER PAGE STYLESHEET
+   ========================================================================== */
+.career-page-container {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg);
+  color: var(--text-primary);
+  padding-top: 130px;
+}
+
+.career-hero-section {
+  position: relative;
+  padding: 40px 0 90px 0;
+  z-index: 5;
+}
+
+.career-header-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+}
+
+.career-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 30px;
+  background: rgba(233, 79, 161, 0.12);
+  border: 1px solid rgba(233, 79, 161, 0.3);
+  color: var(--pink);
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.career-title {
+  font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.career-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* 2-Column Main Career Grid */
+.career-main-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Left Column: Why BMX & Contact Chips Card */
+.career-info-card {
+  background: var(--card-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glow);
+  border-radius: 28px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.culture-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.culture-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.culture-desc {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* HR Contact Chips */
+.career-contact-chips-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-chip-label {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.contact-chips-wrapper {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.career-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(139, 47, 232, 0.15);
+  border: 1px solid var(--purple-light);
+  padding: 12px 20px;
+  border-radius: 16px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: var(--transition-fast);
+}
+
+.career-chip:hover {
+  background: rgba(233, 79, 161, 0.2);
+  border-color: var(--pink);
+}
+
+.career-chip i {
+  color: var(--pink);
+}
+
+/* Social Media Row */
+.career-socials-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.career-social-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.career-social-btn:hover {
+  background: var(--purple-deep);
+  border-color: var(--purple-light);
+  color: #fff;
+}
+
+/* Right Column: Career Application Form Card */
+.career-form-card {
+  background: var(--card-strong);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.career-input,
+.career-select {
+  width: 100%;
+  background: var(--field);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  box-sizing: border-box;
+}
+
+.career-input:focus,
+.career-select:focus {
+  outline: none;
+  border-color: var(--purple-light);
+  background: var(--card-strong);
+}
+
+.career-select option {
+  background: var(--card-strong);
+  color: var(--text-primary);
+  padding: 10px;
+}
+
+/* File Upload Box */
+.file-upload-box {
+  border: 2px dashed rgba(139, 47, 232, 0.4);
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.file-upload-box:hover,
+.file-upload-box.has-file {
+  border-color: var(--pink);
+  background: rgba(233, 79, 161, 0.06);
+}
+
+.upload-icon {
+  font-size: 1.8rem;
+  color: var(--purple-light);
+}
+
+.file-upload-box.has-file .upload-icon {
+  color: var(--pink);
+}
+
+.upload-title {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.upload-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.hidden-file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.btn-submit-career {
+  width: 100%;
+  background: linear-gradient(135deg, var(--purple-light) 0%, var(--pink) 100%);
+  border: none;
+  border-radius: 14px;
+  padding: 16px 20px;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 10px 25px rgba(233, 79, 161, 0.35);
+  margin-top: 8px;
+}
+
+.btn-submit-career:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Mobile Responsiveness for Career Page */
+@media (max-width: 1024px) {
+  .career-main-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .career-page-container {
+    padding-top: 100px;
+  }
+
+  .form-row-2col {
+    grid-template-columns: 1fr;
+  }
+
+  .career-form-card,
+  .career-info-card {
+    padding: 24px 20px;
+  }
+}

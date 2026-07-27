@@ -68,6 +68,11 @@ export default function Navbar({ activePage = 'home', onNavigate }) {
           navigate('/contact');
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (target === 'career') {
+        if (window.location.pathname !== '/career') {
+          navigate('/career');
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         const scrollToSection = () => {
           const el = document.getElementById(target);
