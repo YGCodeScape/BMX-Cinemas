@@ -83,6 +83,11 @@ export default function Navbar({ activePage = 'home', onNavigate }) {
           navigate('/corporate');
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (target === 'faqs') {
+        if (window.location.pathname !== '/faqs') {
+          navigate('/faqs');
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         const scrollToSection = () => {
           const el = document.getElementById(target);

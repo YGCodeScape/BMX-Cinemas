@@ -1,15 +1,63 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../styles/footer.css';
 
 export default function Footer({ onNavigate }) {
-  const handleLinkClick = (e, targetId) => {
-    e.preventDefault();
+  const navigate = useNavigate();
+
+  const handleLinkClick = (e, target) => {
+    if (e) e.preventDefault();
+    
     if (onNavigate) {
-      onNavigate(targetId);
+      onNavigate(target);
+    }
+
+    if (target === 'home') {
+      if (window.location.pathname !== '/') {
+        navigate('/');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'about') {
+      if (window.location.pathname !== '/about') {
+        navigate('/about');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'contact') {
+      if (window.location.pathname !== '/contact') {
+        navigate('/contact');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'career') {
+      if (window.location.pathname !== '/career') {
+        navigate('/career');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'advertise') {
+      if (window.location.pathname !== '/advertise') {
+        navigate('/advertise');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'corporate') {
+      if (window.location.pathname !== '/corporate') {
+        navigate('/corporate');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      const el = document.getElementById(targetId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+      if (window.location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          const el = document.getElementById(target);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }, 150);
+      } else {
+        const el = document.getElementById(target);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }
   };
@@ -124,7 +172,7 @@ export default function Footer({ onNavigate }) {
           <div className="footer-bottom-row">
             
             {/* Logo */}
-            <div className="footer-logo-block">
+            <div className="footer-logo-block" onClick={(e) => handleLinkClick(e, 'home')} style={{ cursor: 'pointer' }}>
               <img src="/img/bmx logo.png" alt="BMX Cinemas Logo" className="footer-logo-img" />
               <span className="footer-logo-sub">ASSOCIATED WITH PURPLE PARROTS ENTERTAINMENT</span>
             </div>
