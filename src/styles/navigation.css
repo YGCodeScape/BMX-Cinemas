@@ -226,6 +226,15 @@
   cursor: pointer;
 }
 
+/* Lock background scrolling on mobile when drawer is open */
+html.drawer-open,
+body.drawer-open {
+  overflow: hidden !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  touch-action: none !important;
+}
+
 /* Mobile Drawer */
 .mobile-drawer {
   position: fixed;
@@ -233,6 +242,7 @@
   right: -100%;
   width: 300px;
   height: 100vh;
+  height: 100dvh;
   background: var(--card-strong);
   border-left: 1px solid var(--border-glow);
   z-index: 2000;
@@ -241,6 +251,10 @@
   flex-direction: column;
   justify-content: space-between;
   transition: var(--transition-smooth);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .mobile-drawer.active {
@@ -269,8 +283,9 @@
 .drawer-nav {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 30px;
+  gap: 10px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .drawer-link {
@@ -284,12 +299,102 @@
   align-items: center;
   gap: 12px;
   transition: var(--transition-fast);
+  text-decoration: none;
 }
 
 .drawer-link:hover, .drawer-link.active {
   color: var(--text-primary);
   background: var(--purple-deep);
 }
+
+/* Mobile Drawer MORE Dropdown Accordion */
+.drawer-dropdown {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.drawer-dropdown-btn {
+  width: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.drawer-dropdown-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.drawer-dropdown-arrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+  color: var(--text-secondary);
+}
+
+.drawer-dropdown-arrow.rotate {
+  transform: rotate(180deg);
+  color: var(--pink);
+}
+
+.drawer-dropdown-menu {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 14px;
+  margin-top: 0;
+}
+
+.drawer-dropdown.open .drawer-dropdown-menu {
+  max-height: 320px;
+  opacity: 1;
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
+
+.drawer-sublink {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 10px 14px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: var(--transition-fast);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.drawer-sublink i {
+  font-size: 0.85rem;
+  color: var(--purple-light);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.drawer-sublink:hover,
+.drawer-sublink.active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--purple-deep) 0%, rgba(139, 47, 232, 0.35) 100%);
+  border-color: rgba(139, 47, 232, 0.4);
+  padding-left: 18px;
+}
+
+.drawer-sublink:hover i,
+.drawer-sublink.active i {
+  color: var(--pink);
+  transform: scale(1.1);
+}
+
 
 .drawer-footer {
   display: flex;
@@ -313,12 +418,15 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(8px);
   z-index: 1999;
   opacity: 0;
   visibility: hidden;
   transition: var(--transition-fast);
+  touch-action: none;
+  overscroll-behavior: contain;
 }
 
 .drawer-overlay.active {

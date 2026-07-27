@@ -5,6 +5,7 @@ import '../../styles/navigation.css';
 export default function Navbar({ activePage = 'home', onNavigate }) {
   const navigate = useNavigate();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isMobileMoreOpen, setIsMobileMoreOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Scroll event handler for header shrink & backdrop blur effect
@@ -21,8 +22,29 @@ export default function Navbar({ activePage = 'home', onNavigate }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scrolling when mobile navigation drawer is open
+  useEffect(() => {
+    if (isDrawerOpen) {
+      document.body.classList.add('drawer-open');
+      document.documentElement.classList.add('drawer-open');
+    } else {
+      document.body.classList.remove('drawer-open');
+      document.documentElement.classList.remove('drawer-open');
+    }
+
+    return () => {
+      document.body.classList.remove('drawer-open');
+      document.documentElement.classList.remove('drawer-open');
+    };
+  }, [isDrawerOpen]);
+
   const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
-  const closeDrawer = () => setIsDrawerOpen(false);
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+    setIsMobileMoreOpen(false);
+    document.body.classList.remove('drawer-open');
+    document.documentElement.classList.remove('drawer-open');
+  };
 
   const handleNavClick = (target) => {
     closeDrawer();
@@ -30,27 +52,46 @@ export default function Navbar({ activePage = 'home', onNavigate }) {
       onNavigate(target);
     }
 
-    if (target === 'home') {
-      navigate('/');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (target === 'about') {
-      navigate('/about');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (target === 'contact') {
-      navigate('/contact');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      if (window.location.pathname !== '/') {
-        navigate('/');
-        setTimeout(() => {
-          const el = document.getElementById(target);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 150);
+    const performScroll = () => {
+      if (target === 'home') {
+        if (window.location.pathname !== '/') {
+          navigate('/');
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (target === 'about') {
+        if (window.location.pathname !== '/about') {
+          navigate('/about');
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (target === 'contact') {
+        if (window.location.pathname !== '/contact') {
+          navigate('/contact');
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        const el = document.getElementById(target);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        const scrollToSection = () => {
+          const el = document.getElementById(target);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            const footerEl = document.querySelector('.site-footer');
+            if (footerEl) {
+              footerEl.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        };
+
+        if (window.location.pathname !== '/') {
+          navigate('/');
+          setTimeout(scrollToSection, 150);
+        } else {
+          scrollToSection();
+        }
       }
-    }
+    };
+
+    // Defer scroll execution slightly to allow drawer animation & body scroll unlock to finish
+    setTimeout(performScroll, 80);
   };
 
   return (
@@ -154,27 +195,101 @@ export default function Navbar({ activePage = 'home', onNavigate }) {
         </div>
 
         <nav className="drawer-nav">
-          <a href="#home" className="drawer-link active" onClick={(e) => { e.preventDefault(); handleNavClick('home'); }}>
+          <a 
+            href="#home" 
+            className={`drawer-link ${activePage === 'home' ? 'active' : ''}`} 
+            onClick={(e) => { e.preventDefault(); handleNavClick('home'); }}
+          >
             <i className="fa-solid fa-house"></i> Home
           </a>
-          <a href="#about" className="drawer-link" onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}>
+          <a 
+            href="#about" 
+            className={`drawer-link ${activePage === 'about' ? 'active' : ''}`} 
+            onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}
+          >
             <i className="fa-solid fa-circle-info"></i> About Us
           </a>
-          <a href="#shows" className="drawer-link" onClick={(e) => { e.preventDefault(); handleNavClick('shows'); }}>
+          <a 
+            href="#shows" 
+            className={`drawer-link ${activePage === 'shows' ? 'active' : ''}`} 
+            onClick={(e) => { e.preventDefault(); handleNavClick('shows'); }}
+          >
             <i className="fa-solid fa-film"></i> Shows
           </a>
-          <a href="#upcoming" className="drawer-link" onClick={(e) => { e.preventDefault(); handleNavClick('upcoming'); }}>
+          <a 
+            href="#upcoming" 
+            className={`drawer-link ${activePage === 'upcoming' ? 'active' : ''}`} 
+            onClick={(e) => { e.preventDefault(); handleNavClick('upcoming'); }}
+          >
             <i className="fa-solid fa-calendar-days"></i> Upcoming
           </a>
-          <a href="#trailers" className="drawer-link" onClick={(e) => { e.preventDefault(); handleNavClick('trailers'); }}>
-            <i className="fa-solid fa-circle-play"></i> Trailers
-          </a>
-          <a href="#experience" className="drawer-link" onClick={(e) => { e.preventDefault(); handleNavClick('experience'); }}>
+          <a 
+            href="#experience" 
+            className={`drawer-link ${activePage === 'experience' ? 'active' : ''}`} 
+            onClick={(e) => { e.preventDefault(); handleNavClick('experience'); }}
+          >
             <i className="fa-solid fa-couch"></i> Experience
           </a>
-          <a href="#contact" className="drawer-link" onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}>
+          <a 
+            href="#contact" 
+            className={`drawer-link ${activePage === 'contact' ? 'active' : ''}`} 
+            onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}
+          >
             <i className="fa-solid fa-headset"></i> Contact Us
           </a>
+
+          {/* MORE Dropdown Menu for Mobile Drawer */}
+          <div className={`drawer-dropdown ${isMobileMoreOpen ? 'open' : ''}`}>
+            <button 
+              type="button"
+              className={`drawer-link drawer-dropdown-btn ${['trailers', 'career', 'faqs', 'advertise', 'corporate'].includes(activePage) || isMobileMoreOpen ? 'active' : ''}`}
+              onClick={() => setIsMobileMoreOpen(!isMobileMoreOpen)}
+            >
+              <div className="drawer-dropdown-title">
+                <i className="fa-solid fa-layer-group"></i>
+                <span>MORE</span>
+              </div>
+              <i className={`fa-solid fa-chevron-down drawer-dropdown-arrow ${isMobileMoreOpen ? 'rotate' : ''}`}></i>
+            </button>
+            
+            <div className="drawer-dropdown-menu">
+              <a 
+                href="#trailers" 
+                className={`drawer-sublink ${activePage === 'trailers' ? 'active' : ''}`}
+                onClick={(e) => { e.preventDefault(); handleNavClick('trailers'); }}
+              >
+                <i className="fa-solid fa-circle-play"></i> Trailers
+              </a>
+              <a 
+                href="#career" 
+                className={`drawer-sublink ${activePage === 'career' ? 'active' : ''}`}
+                onClick={(e) => { e.preventDefault(); handleNavClick('career'); }}
+              >
+                <i className="fa-solid fa-briefcase"></i> Career
+              </a>
+              <a 
+                href="#faqs" 
+                className={`drawer-sublink ${activePage === 'faqs' ? 'active' : ''}`}
+                onClick={(e) => { e.preventDefault(); handleNavClick('faqs'); }}
+              >
+                <i className="fa-solid fa-circle-question"></i> FAQs
+              </a>
+              <a 
+                href="#advertise" 
+                className={`drawer-sublink ${activePage === 'advertise' ? 'active' : ''}`}
+                onClick={(e) => { e.preventDefault(); handleNavClick('advertise'); }}
+              >
+                <i className="fa-solid fa-rectangle-ad"></i> Advertise With Us
+              </a>
+              <a 
+                href="#corporate" 
+                className={`drawer-sublink ${activePage === 'corporate' ? 'active' : ''}`}
+                onClick={(e) => { e.preventDefault(); handleNavClick('corporate'); }}
+              >
+                <i className="fa-solid fa-users-gear"></i> Corporate Booking
+              </a>
+            </div>
+          </div>
         </nav>
 
         <div className="drawer-footer">
@@ -191,6 +306,7 @@ export default function Navbar({ activePage = 'home', onNavigate }) {
         className={`drawer-overlay ${isDrawerOpen ? 'active' : ''}`} 
         id="drawerOverlay"
         onClick={closeDrawer}
+        onTouchMove={(e) => e.preventDefault()}
       ></div>
     </>
   );
