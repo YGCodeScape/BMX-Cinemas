@@ -1,43 +1,4 @@
 export const upcomingMovieDataSet = [
-    {
-    id: "jan-neta",
-    title: "Jan Neta",
-    subtitle: "The Leader of People",
-    genre: "Action • Drama",
-    lang: "Hindi",
-    cert: "UA/13+",
-    releaseDate: "Jul 23, 2026",
-    month: "July 2026",
-    posterImage: "./img/jan neta.jpeg",
-    bgImage: "./img/jan neta.jpeg",
-    trailerUrl: "https://www.youtube.com/embed/0Yq_FsMuP8U"
-  },
-  {
-    id: "india-story",
-    title: "The india story",
-    subtitle: "India's most shocking truth",
-    genre: "drama",
-    lang: "Hindi",
-    cert: "UA/16+",
-    releaseDate: "Jul 24, 2026",
-    month: "July 2026",
-    posterImage: "./img/the india story.jpg",
-    bgImage: "./img/the india story.jpg",
-    trailerUrl: "https://www.youtube.com/embed/0Yq_FsMuP8U"
-  },
-  {
-    id: "malin-up",
-    title: "Ek hota Malin",
-    subtitle: "A Tale of Mystery",
-    genre: "Drama",
-    lang: "Marathi",
-    cert: "UA/13+",
-    releaseDate: "Jul 24, 2026",
-    month: "July 2026",
-    posterImage: "./img/maalin poster.jpeg",
-    bgImage: "./img/maalin poster.jpeg",
-    trailerUrl: "https://www.youtube.com/embed/0Yq_FsMuP8U"
-  },
   {
     id: "spiderman-up",
     title: "SpiderMan",
@@ -62,7 +23,7 @@ export const upcomingMovieDataSet = [
     month: "August 2026",
     posterImage: "./img/prahaar poster.jpeg",
     bgImage: "./img/prahaar poster.jpeg",
-    trailerUrl: "https://www.youtube.com/embed/0Yq_FsMuP8U"
+    trailerUrl: "https://www.youtube.com/embed/rPZw29Zh6Oo"
   },
   {
     id: "aavara-up",
@@ -75,7 +36,7 @@ export const upcomingMovieDataSet = [
     month: "August 2026",
     posterImage: "./img/aavarapan2 poster.jpeg",
     bgImage: "./img/aavarapan2 poster.jpeg",
-    trailerUrl: "https://www.youtube.com/embed/0Yq_FsMuP8U"
+    trailerUrl: "https://www.youtube.com/embed/IQ7HkZ-Gun8"
   },
   {
     id: "batwara-up",
@@ -88,7 +49,7 @@ export const upcomingMovieDataSet = [
     month: "August 2026",
     posterImage: "./img/batwara poster.jpeg",
     bgImage: "./img/batwara poster.jpeg",
-    trailerUrl: "https://www.youtube.com/embed/0Yq_FsMuP8U"
+    trailerUrl: "https://www.youtube.com/embed/RWOL5S6uxaQ"
   },
   {
     id: "insidious-up",
@@ -101,7 +62,7 @@ export const upcomingMovieDataSet = [
     month: "August 2026",
     posterImage: "./img/insidious poster.jpeg",
     bgImage: "./img/insidious poster.jpeg",
-    trailerUrl: "https://www.youtube.com/embed/0Yq_FsMuP8U"
+    trailerUrl: "https://www.youtube.com/embed/af291pwbUyM"
   },
   {
     id: "toxic-up",
@@ -114,7 +75,7 @@ export const upcomingMovieDataSet = [
     month: "August 2026",
     posterImage: "./img/toxic poster.jpg",
     bgImage: "./img/toxic poster.jpg",
-    trailerUrl: "https://www.youtube.com/embed/0Yq_FsMuP8U"
+    trailerUrl: "https://www.youtube.com/embed/cJXTUyEih7Y"
   },
   {
     id: "etha-up",
@@ -127,7 +88,7 @@ export const upcomingMovieDataSet = [
     month: "August 2026",
     posterImage: "./img/eetha poster.jpeg",
     bgImage: "./img/eetha poster.jpeg",
-    trailerUrl: "https://www.youtube.com/embed/0Yq_FsMuP8U"
+    trailerUrl: "https://www.youtube.com/embed/zfopTfY3lBU"
   },
   {
     id: "ramayana-up",
@@ -153,6 +114,6 @@ export const upcomingMovieDataSet = [
     month: "December 2026",
     posterImage: "./img/avengers poster.jpg",
     bgImage: "./img/avengers poster.jpg",
-    trailerUrl: "https://www.youtube.com/embed/0Yq_FsMuP8U"
+    trailerUrl: "https://www.youtube.com/embed/hvKW6iDOZrc"
   }
 ];

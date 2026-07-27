@@ -15,8 +15,8 @@ export const faqDataSet = [
   {
     id: "faq-2",
     category: "ticketing",
-    question: "Can I cancel or refund my ticket booking?",
-    answer: "Ticket cancellations and refunds are governed by BookMyShow's official cancellation policies. Please check your confirmation SMS/Email for cancellation eligibility and details."
+    question: "What is the ticket cancellation or refund policy at BMX Cinemas?",
+    answer: "Once a booking is confirmed, movie tickets at BMX Cinemas are non-refundable and non-transferable as per our policy. However, if a show is cancelled or rescheduled by the cinema, customers are eligible for a full refund or alternative show booking. For assistance with ticket-related issues, please contact our customer support at support@bmxcinemas.com or visit the Help & Support section on our website."
   },
   {
     id: "faq-3",
@@ -26,21 +26,21 @@ export const faqDataSet = [
   },
   {
     id: "faq-4",
-    category: "experience",
-    question: "What cinema technologies are available at BMX Cinemas?",
-    answer: "Our auditoriums feature RGB 4K Laser Projection systems, Dolby Atmos 360 spatial surround sound, and ergonomic VIP Motorized Italian Leather Recliners for total cinematic comfort."
+    category: "ticketing",
+    question: "What is the ticket cancellation or refund policy at BMX Cinemas?",
+    answer: "Once a booking is confirmed, movie tickets at BMX Cinemas are non-refundable and non-transferable as per our policy. However, if a show is cancelled or rescheduled by the cinema, customers are eligible for a full refund or alternative show booking. For assistance with ticket-related issues, please contact our customer support at support@bmxcinemas.com or visit the Help & Support section on our website."
   },
   {
     id: "faq-5",
     category: "experience",
-    question: "Is food & beverage service available inside the theater?",
-    answer: "Yes! You can order gourmet snacks, popcorn, thin-crust pizzas, and beverages from our Cine Cafe with seat-side service options available in select screens."
+    question: "What amenities are available at BMX Cinemas?",
+    answer: "BMX Cinemas offers a premium movie experience with features like luxury recliner seats, Dolby sound, 4K projection, gourmet snacks, and a cozy café zone. Our aim is to make every visit more than a movie — it’s a complete cinematic experience."
   },
   {
     id: "faq-6",
     category: "experience",
-    question: "Are children allowed for all movie screenings?",
-    answer: "Entry for children depends on the Central Board of Film Certification (CBFC) rating (e.g., U, UA, or A). Children under 3 years generally do not require a separate ticket unless occupying a seat."
+    question: "Are there any discounts, memberships, or offers available?",
+    answer: "Absolutely! BMX Cinemas regularly runs special offers, student discounts, weekday deals, and loyalty rewards. Follow us on Instagram @bmxcinemas or check our ‘Offers’ page for the latest updates and promo codes."
   },
   {
     id: "faq-7",
