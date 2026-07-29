@@ -9,9 +9,10 @@ export default function Landing({ onOpenTrailer }) {
 
   const currentMovie = movieDataSet[activeMovieIndex] || movieDataSet[0];
 
-  // 4-Second Auto Scroll Carousel Engine
+  // 4-Second Auto Scroll Carousel Engine (Bulletproof)
   useEffect(() => {
     if (isPaused) return;
+
     const timer = setInterval(() => {
       setActiveMovieIndex((prevIndex) => (prevIndex + 1) % movieDataSet.length);
     }, 4000);
@@ -19,9 +20,13 @@ export default function Landing({ onOpenTrailer }) {
     return () => clearInterval(timer);
   }, [isPaused]);
 
-  // Handle movie selection from dropdown or pill
+  // Handle manual movie selection (pauses briefly then resumes auto-scroll)
   const selectMovie = (index) => {
     setActiveMovieIndex(index);
+    setIsPaused(true);
+    setTimeout(() => {
+      setIsPaused(false);
+    }, 6000);
   };
 
   // Scroll to Quick Booking Card
@@ -41,12 +46,7 @@ export default function Landing({ onOpenTrailer }) {
   };
 
   return (
-    <section 
-      className="hero-section" 
-      id="home"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <section className="hero-section" id="home">
       {/* Background Image & Vignette Overlays */}
       <div className="hero-bg-wrapper">
         <div 
