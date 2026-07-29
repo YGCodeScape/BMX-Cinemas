@@ -166,24 +166,15 @@ export default function Landing({ onOpenTrailer }) {
       {/* Bottom Now Playing Movie Selector Pills Bar */}
       <div className="bottom-carousel-bar">
         <div className="movie-pills-wrapper">
-          {movieDataSet.map((movie, idx) => {
-            const isActive = idx === activeMovieIndex;
-            return (
-              <button 
-                key={movie.id}
-                className={`movie-pill ${isActive ? 'active' : ''}`}
-                onClick={() => selectMovie(idx)}
-              >
-                <span className="pill-title">{movie.title}</span>
-                <div className="pill-progress-track">
-                  <div 
-                    key={`${movie.id}-${activeMovieIndex}`}
-                    className={`pill-progress-fill ${isActive && !isPaused ? 'animating' : ''}`}
-                  ></div>
-                </div>
-              </button>
-            );
-          })}
+          {movieDataSet.map((movie, idx) => (
+            <button 
+              key={movie.id}
+              className={`movie-pill ${idx === activeMovieIndex ? 'active' : ''}`}
+              onClick={() => selectMovie(idx)}
+            >
+              {movie.title}
+            </button>
+          ))}
         </div>
       </div>
     </section>
