@@ -114,6 +114,7 @@ export default function TrailersSection() {
                         src={`/${movie.bgImage}`} 
                         alt={movie.title} 
                         className="mini-thumb-img"
+                        loading="lazy"
                         onError={(e) => { e.target.src = `/${movie.bgImage}`; }}
                       />
                       <div className="mini-play-icon">

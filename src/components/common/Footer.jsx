@@ -68,10 +68,10 @@ export default function Footer({ onNavigate }) {
         
         {/* Floating 3D Mascot Avatar Props */}
         <div className="footer-avatar-prop avatar-seat">
-          <img src="/img/bmx avtar seat.png" alt="BMX Seat Avatar" className="avatar-img" />
+          <img src="/img/bmx avtar seat.png" alt="BMX Seat Avatar" className="avatar-img" loading="lazy" />
         </div>
         <div className="footer-avatar-prop avatar-car">
-          <img src="/img/avatar2.png" alt="BMX Car Avatar" className="avatar-img" />
+          <img src="/img/avatar2.png" alt="BMX Car Avatar" className="avatar-img" loading="lazy" />
         </div>
 
         <div className="section-container">
