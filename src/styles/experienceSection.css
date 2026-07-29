@@ -144,7 +144,6 @@
 }
 
 .exp-card-theatre:hover {
-  transform: translateY(-4px);
   border-color: var(--purple-light);
 }
 
@@ -168,7 +167,7 @@
   transition: transform 0.6s ease;
 }
 
-.exp-card-theatre:hover .exp-card-bg-image {
+.exp-card-bg-image {
   transform: scale(1.06);
 }
 
@@ -183,7 +182,7 @@
   transition: transform 0.6s ease;
 }
 
-.exp-card-cafe:hover .exp-card-bg-image {
+.exp-card-bg-image {
   transform: scale(1.06);
 }
 
