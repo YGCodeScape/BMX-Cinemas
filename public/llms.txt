@@ -1,0 +1,17 @@
+# BMX Cinemas (Balaji Movieplex)
+
+> Premier entertainment hub redefining the movie-watching experience in Navi Mumbai and Ambernath with 4K Laser Projection, Dolby Atmos sound, and VIP recliner luxury.
+
+## Pages & Key Services
+- [Home Page](https://bmxcinemas.netlify.app/): Featured blockbusters, quick booking engine, trailers, Cine Cafe & theater experience.
+- [About Us](https://bmxcinemas.netlify.app/about): Founded in 2013, history across Kopar Khairane, Kharghar, Ambernath, 6 USPs, and 9/12 Nau Se Barah Movie Bar.
+- [Contact Us](https://bmxcinemas.netlify.app/contact): Outlet addresses, phone numbers (+91 88798 55831), and customer support form.
+- [Careers](https://bmxcinemas.netlify.app/career): Job openings across Head Office, Restaurant, and Cinema outlets (hr@purpleparrots.in).
+- [Advertise With Us](https://bmxcinemas.netlify.app/advertise): On-screen slides, trailers, lobby branding, and media kits.
+- [Corporate Booking](https://bmxcinemas.netlify.app/corporate): Bulk bookings, private hall screenings, and corporate conference auditorium rentals (+91 79775 08036).
+- [FAQs](https://bmxcinemas.netlify.app/faqs): Answers to ticketing, BookMyShow integration, amenities, and location questions.
+
+## Outlets
+- **Kopar Khairane**: Head Office, Plot No 90, Sector 8, Kopar Khairane, Navi Mumbai (+91 88798 55831).
+- **Kharghar**: Little World Mall, Sector 2, Kharghar, Navi Mumbai (+91 87798 57813).
+- **Ambernath**: GALAXY Mall, Vadol Gaon, Ambernath (+91 72086 80250).

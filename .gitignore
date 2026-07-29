@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+scratch_parse.py
+reports
 
 # Editor directories and files
 .vscode/*

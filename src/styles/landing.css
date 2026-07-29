@@ -68,7 +68,7 @@
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
-  padding: 40px 40px 0 40px;
+  padding: 20px 40px 0 40px;
   display: grid;
   grid-template-columns: 1.2fr 380px;
   gap: 60px;
@@ -194,7 +194,7 @@
 .quick-booking-card {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  background: rgba(28, 17, 41, 0.45);
+  background: rgba(28, 17, 41, 0.699);
   border: 1px solid var(--border-glow);
   border-radius: 24px;
   padding: 32px;
@@ -337,7 +337,7 @@
   z-index: 5;
   width: 100%;
   max-width: 1400px;
-  margin: 40px auto 30px auto;
+  margin: 0 auto 30px auto;
   padding: 0 40px;
   display: flex;
   align-items: center;
