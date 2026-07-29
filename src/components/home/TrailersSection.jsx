@@ -114,6 +114,8 @@ export default function TrailersSection() {
                         src={`/${movie.bgImage}`} 
                         alt={movie.title} 
                         className="mini-thumb-img"
+                        width="120"
+                        height="70"
                         loading="lazy"
                         onError={(e) => { e.target.src = `/${movie.bgImage}`; }}
                       />

@@ -112,6 +112,8 @@ export default function FeaturedSection({ onOpenTrailer, onSelectMovie }) {
                     src={`/${movie.posterImage || movie.bgImage}`} 
                     alt={movie.title} 
                     className="card-poster-img"
+                    width="280"
+                    height="420"
                     loading="lazy"
                     onError={(e) => { e.target.src = `/${movie.bgImage}`; }}
                   />

@@ -122,7 +122,7 @@ export default function Navbar({ activePage = 'home', onNavigate }) {
           
           {/* Logo */}
           <div className="brand-logo" onClick={() => handleNavClick('home')} style={{ cursor: 'pointer' }}>
-            <img src="/img/bmx logo.png" alt="BMX Cinemas Logo" className="logo-img" />
+            <img src="/img/bmx logo.png" alt="BMX Cinemas Logo" className="logo-img" width="160" height="48" />
           </div>
 
           {/* Desktop Floating Pill Navigation */}
