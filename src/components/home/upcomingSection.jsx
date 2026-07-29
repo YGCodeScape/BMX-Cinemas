@@ -211,9 +211,9 @@ export default function UpcomingSection({ onOpenTrailer }) {
         </div>
 
         {/* Bottom Notification Banner */}
-        <div class="prebooking-banner reveal-on-scroll">
-            <div class="banner-info">
-                <span class="pulse-dot"></span>
+        <div className="prebooking-banner reveal-on-scroll">
+            <div className ="banner-info">
+                <span className ="pulse-dot"></span>
                 <span>Pre-booking opens 2 weeks before global release at all BMX Cinemas outlets (Koparkhairane • Kharghar • Ambernath).</span>
             </div>
         </div>
