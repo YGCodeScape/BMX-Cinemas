@@ -74,24 +74,6 @@ export const movieDataSet = [
     }
   },
   {
-    id: "evil-dead",
-    title: "Evil Dead Burn",
-    subtitle: "DIRECTED BY LEE CRONIN",
-    genre: "Horror • Thriller",
-    rating: "8.1 / 10",
-    duration: "1h 58m",
-    cert: "A",
-    description: "When an ancient cursed relic is awakened in a secluded mountain lodge, a family must battle terrifying supernatural forces to survive the night.",
-    bgImage: "img/Evil dead burn.jpg",
-    posterImage: "img/evil dead burn poster.jpg",
-    trailerUrl: "https://www.youtube.com/embed/fqBZtUuew_c",
-    bmsUrls: {
-      koparkhairane: "https://in.bookmyshow.com/buytickets/bmx-cinemas-kopar-khairane/cinema-mumb-BMXK-MT/",
-      kharghar: "https://in.bookmyshow.com/buytickets/bmx-cinemas-little-world-mall-kharghar/cinema-mumb-BMXL-MT/",
-      ambernath: "https://in.bookmyshow.com/buytickets/bmx-cinemas-galaxy-mall-ambernath/cinema-mumb-BMXA-MT/"
-    }
-  },
-  {
     id: "Bhootam-Bhayyam",
     title: "Bhootam Bhayyam",
     subtitle: "supernatural mystery",
