@@ -1,5 +1,25 @@
 export const movieDataSet = [
   {
+    id: "spiderman-up",
+    title: "SpiderMan",
+    subtitle: "Brand New Day",
+    genre: "Action • Adventure • Sci-Fi",
+    rating: "9 / 10",
+    lang: "English • Hindi",
+    cert: "UA/13+",
+    description: "follows an isolated Peter Parker fighting crime full-time in a world that has forgotten him. As old friends move on, mounting pressure sparks an uncontrollable personal transformation that becomes his only hope against a powerful, unseen new threat and enemy",
+    releaseDate: "Jul 30, 2026",
+    month: "July 2026",
+    posterImage: "./img/spidderman poster.jpeg",
+    bgImage: "./img/spider banner.png",
+    trailerUrl: "https://www.youtube.com/embed/Fi1wAaQkJHU",
+    bmsUrls: {
+      koparkhairane: "https://in.bookmyshow.com/buytickets/bmx-cinemas-kopar-khairane/cinema-mumb-BMXK-MT/",
+      kharghar: "https://in.bookmyshow.com/buytickets/bmx-cinemas-little-world-mall-kharghar/cinema-mumb-BMXL-MT/",
+      ambernath: "https://in.bookmyshow.com/buytickets/bmx-cinemas-galaxy-mall-ambernath/cinema-mumb-BMXA-MT/"
+    }
+  },
+  {
     id: "jan-neta",
     title: "Jan Neta",
     subtitle: "The Leader of People",

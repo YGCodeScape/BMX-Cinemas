@@ -1,18 +1,5 @@
 export const upcomingMovieDataSet = [
   {
-    id: "spiderman-up",
-    title: "SpiderMan",
-    subtitle: "Brand New Day",
-    genre: "Action • Adventure • Sci-Fi",
-    lang: "English • Hindi",
-    cert: "UA/13+",
-    releaseDate: "Jul 30, 2026",
-    month: "July 2026",
-    posterImage: "./img/spidderman poster.jpeg",
-    bgImage: "./img/spider banner.png",
-    trailerUrl: "https://www.youtube.com/embed/Fi1wAaQkJHU"
-  },
-  {
     id: "prahar-up",
     title: "Prahar",
     subtitle: "The Untold story of ujjwal nikam",
