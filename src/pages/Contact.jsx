@@ -6,9 +6,10 @@ import { useFormSubmit } from '../hooks/useFormSubmit';
 import '../styles/contact.css';
 
 export default function Contact() {
-  const { isSubmitting, isSuccess, handleSubmit: sendForm } = useFormSubmit('contact');
+  const { isSubmitting, isSuccess, errorMessage, handleSubmit: sendForm } = useFormSubmit('contact');
   const [formData, setFormData] = useState({
     name: '',
+    phone: '',
     email: '',
     subject: '',
     message: ''
@@ -16,16 +17,26 @@ export default function Contact() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    if (name === 'phone') {
+      const cleanedValue = value.replace(/\D/g, '').slice(0, 10);
+      setFormData(prev => ({ ...prev, phone: cleanedValue }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.subject) return;
+    if (!formData.name || !formData.phone || !formData.email || !formData.subject) return;
+
+    if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+      alert('Please enter a valid 10-digit Indian phone number.');
+      return;
+    }
 
     const res = await sendForm(formData);
     if (res.success) {
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFormData({ name: '', phone: '', email: '', subject: '', message: '' });
     }
   };
 
@@ -103,6 +114,13 @@ export default function Contact() {
                   </div>
                 )}
 
+                {errorMessage && (
+                  <div className="form-error-banner" style={{ background: 'rgba(235, 87, 87, 0.15)', border: '1px solid #eb5757', color: '#ff6b6b', padding: '12px 16px', borderRadius: '8px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <i className="fa-solid fa-circle-exclamation"></i>
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
                 <form className="contact-form" onSubmit={handleFormSubmit}>
                   
                   {/* Name Input */}
@@ -120,19 +138,38 @@ export default function Contact() {
                     />
                   </div>
 
-                  {/* Email Input */}
-                  <div className="contact-form-group">
-                    <label htmlFor="email">Email Address *</label>
-                    <input 
-                      type="email" 
-                      id="email" 
-                      name="email" 
-                      className="contact-input"
-                      placeholder="Enter your email address" 
-                      value={formData.email}
-                      onChange={handleChange}
-                      required 
-                    />
+                  {/* Phone & Email (2 Columns) */}
+                  <div className="form-row-2col">
+                    <div className="contact-form-group">
+                      <label htmlFor="phone">Phone Number (10 Digits) *</label>
+                      <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        className="contact-input"
+                        placeholder="e.g. 9876543210" 
+                        value={formData.phone}
+                        onChange={handleChange}
+                        maxLength={10}
+                        pattern="[6-9][0-9]{9}"
+                        title="Please enter a valid 10-digit Indian phone number starting with 6, 7, 8, or 9"
+                        required 
+                      />
+                    </div>
+
+                    <div className="contact-form-group">
+                      <label htmlFor="email">Email Address *</label>
+                      <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        className="contact-input"
+                        placeholder="Enter your email address" 
+                        value={formData.email}
+                        onChange={handleChange}
+                        required 
+                      />
+                    </div>
                   </div>
 
                   {/* Subject Input */}

@@ -6,7 +6,7 @@ import { useFormSubmit } from '../hooks/useFormSubmit';
 import '../styles/advertise.css';
 
 export default function Advertise() {
-  const { isSubmitting, isSuccess, handleSubmit: sendForm } = useFormSubmit('advertise');
+  const { isSubmitting, isSuccess, errorMessage, handleSubmit: sendForm } = useFormSubmit('advertise');
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -21,12 +21,22 @@ export default function Advertise() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    if (name === 'phone') {
+      const cleanedValue = value.replace(/\D/g, '').slice(0, 10);
+      setFormData(prev => ({ ...prev, phone: cleanedValue }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!formData.firstName || !formData.lastName || !formData.phone || !formData.email || !formData.organizationType || !formData.advertiseType || !formData.location) {
+      return;
+    }
+
+    if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+      alert('Please enter a valid 10-digit Indian phone number starting with 6, 7, 8, or 9.');
       return;
     }
 
@@ -131,6 +141,13 @@ export default function Advertise() {
                   </div>
                 )}
 
+                {errorMessage && (
+                  <div className="form-error-banner" style={{ background: 'rgba(235, 87, 87, 0.15)', border: '1px solid #eb5757', color: '#ff6b6b', padding: '12px 16px', borderRadius: '8px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <i className="fa-solid fa-circle-exclamation"></i>
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
                 <form className="contact-form" onSubmit={handleFormSubmit}>
                   
                   {/* First Name & Last Name (2 Columns) */}
@@ -166,15 +183,18 @@ export default function Advertise() {
                   {/* Phone & Email (2 Columns) */}
                   <div className="form-row-2col">
                     <div className="contact-form-group">
-                      <label htmlFor="phone">Phone Number *</label>
+                      <label htmlFor="phone">Phone Number (10 Digits) *</label>
                       <input 
                         type="tel" 
                         id="phone" 
                         name="phone" 
                         className="ad-input"
-                        placeholder="+91 98765 43210" 
+                        placeholder="e.g. 9876543210" 
                         value={formData.phone}
                         onChange={handleChange}
+                        maxLength={10}
+                        pattern="[6-9][0-9]{9}"
+                        title="Please enter a valid 10-digit Indian phone number starting with 6, 7, 8, or 9"
                         required 
                       />
                     </div>

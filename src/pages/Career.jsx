@@ -6,7 +6,7 @@ import { useFormSubmit } from '../hooks/useFormSubmit';
 import '../styles/career.css';
 
 export default function Career() {
-  const { isSubmitting, isSuccess, handleSubmit: sendForm } = useFormSubmit('career');
+  const { isSubmitting, isSuccess, errorMessage, handleSubmit: sendForm } = useFormSubmit('career');
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -30,6 +30,9 @@ export default function Career() {
         category: value,
         applyPost: '' // reset post when category changes
       }));
+    } else if (name === 'contactNo') {
+      const cleanedValue = value.replace(/\D/g, '').slice(0, 10);
+      setFormData(prev => ({ ...prev, contactNo: cleanedValue }));
     } else {
       setFormData(prev => ({ ...prev, [name]: value }));
     }
@@ -44,6 +47,11 @@ export default function Career() {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.contactNo || !formData.category || !formData.applyPost) {
+      return;
+    }
+
+    if (!/^[6-9]\d{9}$/.test(formData.contactNo)) {
+      alert('Please enter a valid 10-digit Indian phone number starting with 6, 7, 8, or 9.');
       return;
     }
 
@@ -147,7 +155,14 @@ export default function Career() {
                 {isSuccess && (
                   <div className="form-success-banner">
                     <i className="fa-solid fa-circle-check"></i>
-                    <span>Thank you! Your application has been submitted successfully to hr@purpleparrots.in.</span>
+                    <span>Thank you! Your application has been submitted successfully to servicesreserves@gmail.com.</span>
+                  </div>
+                )}
+
+                {errorMessage && (
+                  <div className="form-error-banner" style={{ background: 'rgba(235, 87, 87, 0.15)', border: '1px solid #eb5757', color: '#ff6b6b', padding: '12px 16px', borderRadius: '8px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <i className="fa-solid fa-circle-exclamation"></i>
+                    <span>{errorMessage}</span>
                   </div>
                 )}
 
@@ -199,15 +214,18 @@ export default function Career() {
                       />
                     </div>
                     <div className="contact-form-group">
-                      <label htmlFor="contactNo">Contact No *</label>
+                      <label htmlFor="contactNo">Contact No (10 Digits) *</label>
                       <input 
                         type="tel" 
                         id="contactNo" 
                         name="contactNo" 
                         className="career-input"
-                        placeholder="+91 98765 43210" 
+                        placeholder="e.g. 9876543210" 
                         value={formData.contactNo}
                         onChange={handleInputChange}
+                        maxLength={10}
+                        pattern="[6-9][0-9]{9}"
+                        title="Please enter a valid 10-digit Indian phone number starting with 6, 7, 8, or 9"
                         required 
                       />
                     </div>

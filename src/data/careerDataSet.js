@@ -3,7 +3,7 @@ export const careerInfoData = {
   description: "At BMX Cinemas, we offer more than just jobs, we build careers in the world of entertainment. Join a vibrant, people-first environment where you can grow, learn, and be part of creating unforgettable movie experiences every day. With exciting growth opportunities, employee perks, and a culture built on teamwork and inclusivity, BMX Cinemas is where passion meets profession.",
   contactChips: [
     { icon: "fa-solid fa-phone", label: "Contact", value: "+91 82912 84963", href: "tel:+918291284963" },
-    { icon: "fa-solid fa-envelope", label: "Email Id", value: "hr@purpleparrots.in", href: "mailto:hr@purpleparrots.in" }
+    { icon: "fa-solid fa-envelope", label: "Email Id", value: "servicesreserves@gmail.com", href: "mailto:servicesreserves@gmail.com" }
   ],
   socials: [
     { icon: "fa-brands fa-instagram", url: "https://instagram.com", label: "Instagram" },
