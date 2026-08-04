@@ -208,7 +208,7 @@ export default function Navbar({ activePage = 'home', onNavigate }) {
       {/* Mobile Navigation Drawer */}
       <aside className={`mobile-drawer ${isDrawerOpen ? 'active' : ''}`} id="mobileNavDrawer">
         <div className="drawer-header">
-          <img src="/img/bmx logo.png" alt="BMX Logo" className="drawer-logo" />
+          <img src="/img/bmx logo.png" alt="BMX Logo" className="drawer-logo" width="140" height="42" loading="lazy" />
           <button className="drawer-close" id="drawerClose" aria-label="Close Drawer Menu" onClick={closeDrawer}>
             <i className="fa-solid fa-xmark"></i>
           </button>

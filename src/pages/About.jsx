@@ -57,6 +57,9 @@ export default function About() {
                 <img 
                   src="/img/inside5.jpg" 
                   alt="Balaji Movieplex Theater Interior" 
+                  width="580"
+                  height="380"
+                  loading="lazy"
                 />
                 <div className="history-media-overlay">
                   <div className="history-stat-badge">
@@ -130,6 +133,9 @@ export default function About() {
                   src={brandData.logo} 
                   alt="9/12 Nau Se Barah - The Movie Bar Logo" 
                   className="nausebarah-logo-img" 
+                  width="140"
+                  height="50"
+                  loading="lazy"
                 />
               </div>
 

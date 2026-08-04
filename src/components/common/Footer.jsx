@@ -173,7 +173,7 @@ export default function Footer({ onNavigate }) {
             
             {/* Logo */}
             <div className="footer-logo-block" onClick={(e) => handleLinkClick(e, 'home')} style={{ cursor: 'pointer' }}>
-              <img src="/img/bmx logo.png" alt="BMX Cinemas Logo" className="footer-logo-img" />
+              <img src="/img/bmx logo.png" alt="BMX Cinemas Logo" className="footer-logo-img" width="160" height="48" loading="lazy" />
               <span className="footer-logo-sub">ASSOCIATED WITH PURPLE PARROTS ENTERTAINMENT</span>
             </div>
 

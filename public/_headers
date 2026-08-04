@@ -1,0 +1,15 @@
+# Netlify Cache Control and Compression Headers for BMX Cinemas
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Long-term Caching for Immutable Static Assets (Images, Fonts, CSS, JS)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable

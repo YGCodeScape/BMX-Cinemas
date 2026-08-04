@@ -1,7 +1,7 @@
 export const movieDataSet = [
   {
     id: "spiderman-up",
-    title: "SpiderMan",
+    title: "SpiderMan brand new day",
     subtitle: "Brand New Day",
     genre: "Action • Adventure • Sci-Fi",
     rating: "9 / 10",
